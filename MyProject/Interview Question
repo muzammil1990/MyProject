@@ -1,0 +1,399 @@
+
+Epsilon  Questions
+------------------
+
+Q: String str= "I am good at java and i have been using this from 2009 and I rate myself as 9";
+   extract integer. from the string
+   output: 20099
+
+Q: Data Provider concept and write the code
+
+Q: Framework: design base class, POM- intialise POM  and initialise the driver.
+Ans: Create constr in POM using pagefactory
+
+Q: Grid (also called Webtable) has 4 columns, check, mail, email, del.
+
+   select a record from the first column and then delete it
+   select a record from the first column, if its not visible then search in second page(pageination) and select it and then delete it
+
+Q. Interface- how to access variable
+
+Q. What are Desired Capabilities?
+
+Q. What are generics?
+A: We can hold only a single type of objects in generics. It doesnot allow to store other objects. = TypeSafety
+Advantage of using generics
+1.TypeSafety
+2.Type casting is not required
+3.Compile-Time Checking: It is checked at compile time so problem will not occur at runtime
+
+
+
+Q: How to count the no. of objects created in a class?
+A: Use static variable and constructor concept. have built a program on this.
+   package: com.volvo.java.oopsConcept = Count_StaticVar
+
+===========================================================================================
+
+IBM Interview question
+
+Q: Count the no. of words in given string using Hashmap.
+A: Done
+===========================================================================================
+
+EPICOR SOFTWARE question
+
+Q: what are the interface have you used in your framework?
+A: 	List, 
+	Set
+    Iterator
+	Map.Entry
+	JavascriptExecutor
+	WebDriver
+	WebElement
+	Options
+	Timeouts
+	Alert
+
+Q: How do you run your test cases?
+
+Q: Explain your framework?
+
+Q: How to use jenkins- part of CI/CD pipeline?
+
+Q: What have you kept in base class?
+=========================================================================================
+
+TSystems QUESTIONS
+
+Q: How do we configure the jenkins?
+
+Q: If we get a conflict becoz of a team member is working on the same file what will be your next steps?
+
+Q: Difference between Groupid and artifact id?
+
+Q: Difference between close() and quit()
+
+Q: Difference between click() and submit()
+A: 
+	click(): 
+ 1. can be performed anywhere in the webpage
+ 2.when we perform click() and If this causes a new page to load, we should discard all references 
+ to this element and also any operations performed on this element bcoz it will throw a
+  StaleElementReferenceException. = If the element no longer exists as initially defined
+
+ 3. if click() is done then the method will _not_ wait for the next page to load
+ 
+ Submit()
+ 
+  1. will work if submit button should be inside <form> tag and element type="submit" as below
+ <form>
+ <input id="submitbutton" name="submitbutton" type="submit" value="Next step" class="g-button g-button-submit">
+ </form>
+ 
+2. If this causes the current page to change, then this method will block until the new page is loaded.
+
+3. If the given element is not within a form = @throws NoSuchElementException
+
+Q: Difference between get() and navigate().to()
+A:
+navigate()=  Allows the driver to access the browser's history and to navigate to a given
+   URL.
+get(): Load a new web page in the current browser window. This is done using an HTTP GET operation,
+   and the method will block until the load is complete.
+   
+   
+   ===============================================================================================
+   
+   ORACLE INTERVIEW QUESTIONS
+   
+ Q; write xpath
+   
+<div id = "abc">
+	<div>
+		.....
+		.....
+		<table></table>
+		<table></table>
+		<table name = "Selenium"></table>
+		<table></table>
+		<table></table>
+		...
+		...
+	</div>
+</div>
+
+Ans
+//table[@name='Selenium']/preceding-sibling::table
+
+
+Ques:
+
+Window1                 Window2         Window3
+Currently pointing		win2			???
+
+Ans: Expected ans using loop
+
+Set set= driver.getWindowHandles();
+Iterator itr=	set.iterator();
+String firstWindow	= itr.next();
+String secondWindow	= itr.next();
+String thirdWindow	= itr.next();
+
+driver.switchTo(thirdWindow);
+
+
+Ques:
+
+Fibonacci Series : 0 1 1 2 3 5 8 13 21 34
+
+Scanner scn= new Scanner(System.in);
+int num= scn.nextInt();
+
+int a=0, b=1;
+
+for(int i=0; i< num; i++){
+syso(a)
+c=a+b;
+
+a=b;
+b=c;
+
+}
+
+
+Q: HTTP Protocol series : 100 to 500?
+A: 1. Information responses(100-199)
+  		100 = Continue = This interim response indicates that the client should continue the request or ignore the response if the request is already finished.
+  		101 = Switching Protocols = This code is sent in response to an Upgrade request header from the client and indicates the protocol the server is switching to.
+  		102 = Processing (WebDAV) = This code indicates that the server has received and is processing the request, but no response is available yet.
+  		103 = Early Hints = This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response.
+  		
+   2. Successful responses(200-299)
+   		200= OK = The request succeeded. The result meaning of "success" depends on the HTTP method:
+
+					GET: The resource has been fetched and transmitted in the message body.
+					HEAD: The representation headers are included in the response without any message body.
+					PUT or POST: The resource describing the result of the action is transmitted in the message body.
+					TRACE: The message body contains the request message as received by the server.
+		
+		
+	
+   3. Redirection messages(300-399)
+       
+   4. Client error responses(400-499)
+        400 = Bad Request = The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). 
+        401 = Unauthorized = Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+        402 = Payment Required = This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.
+        403 = Forbidden = The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+        404 = Not Found = The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.
+        405 = Method Not Allowed = The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource.
+        406 = Not Acceptable = This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.
+        407 = Proxy Authentication Required = This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.
+        408 = Request Timeout = This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing. Also note that some servers merely shut down the connection without sending this message.
+        
+		
+					
+
+
+Q: Patch Call?
+
+Q: SVG Element?
+A: 			What is SVG?
+		SVG stands for Scalable Vector Graphics
+		SVG is used to define vector-based graphics for the Web
+		SVG defines the graphics in XML format
+		Every element and every attribute in SVG files can be animated
+		SVG is a W3C recommendation
+		SVG integrates with other W3C standards such as the DOM and XSL
+
+Q: Difference between implicity wait and WebDriverWait
+
+Ques: They Asked java in depth. Method overloading, method overidding, Collection, Maps in detail.
+
+Q: double click and Right Click in selenium??
+Ans: Action class
+   
+================================================================================================
+					Genpact: Interview Questions
+
+Q: find second highest element in array= solved
+Q: Automate selenium questions: = Solved
+	Selenium code practice
+	https://the-internet.herokuapp.com/
+	
+================================================================================================
+
+					Deutsche bank Interview Questions
+
+String s1 = "L M L L M S S S S L L M XXL XL XL XXL";
+        String S2 = "M M M L L L L L S S S S XXL XXL XL XL"; display in this order= solved
+        
+Q2: Unauthorised vs Forbidden?
+Ans: 
+	They are both part of  HTTP Protocol series = 400
+	  401 = Unauthorized = Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+	  403 = Forbidden = The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+
+Q3: Custom Exception handling?
+
+Q4: Is there any other way to achieve Data Driven Testing apart from using scneario outline with examples keyword.?
+
+Q5: When working on a parallel/Cross browser what is the exception you might face other than 
+the driver/browser issue(ruled out)??
+Ans: I gave answer as stack memory issue.
+
+Q6: How to do you acheieve data driven testing in cucumber?
+A	
+    Data-Driven Testing in Cucumber
+		Parameterization without Example Keyword
+		
+	Data-Driven Testing in Cucumber using Scenario Outline
+
+		Parameterization with Example Keyword
+		Parameterization using Tables
+	
+	Data-Driven Testing in Cucumber using External Files
+
+		Parameterization using Excel Files
+		Parameterization using Json
+		Parameterization using XML
+   
+	  
+==============================================================================================================
+
+EPAM INTERVIEW QUESTIONS
+ 1. custom exception handling and its program?
+ Ans: Check pg. its available
+ 
+ 2. diff between put and patch method of API?
+ Ans: 
+ 	PUT = Put request are idempotent
+ 	PATCH = Patch request are non-idempotent; The difference with PATCH is that you only apply partial modifications to the resource.
+ 	
+ 	idempotent(PUT)= calling the same PUT request multiple times will always produce the same result.
+  
+ 3. Serialization and Deserialization in API?
+ 
+ 4. Internal Implementation of Set?
+ Ans: public interface Set<E> extends Collection<E>
+ 
+ 5. What is Test Pyramid?
+ 
+ 6. Diff between Maven and Maven Plugin? What are the maven plugins have you used?
+ 
+ 7. How to handle json dynamically?
+ 
+ 8. What are different authorization type?
+ Ans: 
+ 	API keys.
+	Basic Auth.
+	HMAC.
+	OAuth
+	
+ 9. What are the diff java 8 features?
+ 
+ 10. Comparable / comparator interface?
+ Ans. 
+ 		not used direclty but indirectly have used.
+ 		
+ 		
+Publicis Sapient
+in my report  		
+ eg: by converting chars to String
+ char ch= s1.charAt(i);
+ String s2= Character.toString(ch); 
+ 
+ declaration of Character class= 
+ public final class Character implements java.io.Serializable, Comparable<Character>
+ {
+   }
+ 
+ many String class methods we have used:
+ String s1="Hello";
+ s1.length()
+ s1.charAt()
+ s1.contains()
+ s1.substring()
+ String.valueOf()  //to convert all primitive data type to String
+ 
+ declaration/internal implementation of String class
+ public final class String implements java.io.Serializable, Comparable<String>, CharSequence 
+  {
+    } 
+ 
+ 11. hashcode vs hashtable
+ 
+ 12. what are design pattern?
+ Ans: >Creational DP
+ 		1. Factory method pattern
+ 		2. Singleton pattern
+ 	 >Structural DP
+ 	 >Behavioural DP
+  
+ 13: 
+<div id = ‘adc’ text = ‘ABC’>
+<div text = ‘random’></div>
+<div text = ‘random’>   
+<div name = ‘xyz’ text = ‘random 1’></div>
+<div text = ‘DUMMY’></div>
+</div>
+<div text = ‘random’></div>
+</div>
+ 
+ ====================================================================================
+ Amazon/Autodesk
+ 
+ 1. What is tool you have to use? How do u decide? decision making?
+ 2. Automation test strategy?
+ 3. Have you come across scenario when the team decides otherwise and you view is different?
+ 4. Will you be able to complete automation if 1 month is given dedicaetely for it?
+ 5. You come across a bug in production? what do you do?
+ Ans: Blameless RCA
+ 
+ =====================================================================================
+ 
+ Encora
+ 
+ Q: Occurance of characters in string
+ Q: Find the 3rd highest element in array
+ Q: Can we overload main method?
+ Q: Can we override static methods?
+ 
+ Q: How to auto update chromedriver when google frequently release the newer version of browsers
+ 
+ ANS: WebDriverManager is an open-source Java library that carries out the management (i.e., download, setup, and maintenance)
+      of the drivers required by Selenium WebDriver (e.g., chromedriver, geckodriver, msedgedriver, etc.) in a fully automated manner.
+      
+      2nd solution: stop auto update of chrome browser from settings
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ 
+ 
+ 
+ 
